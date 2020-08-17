@@ -1,29 +1,24 @@
 package com.example.testfragmentpager;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.ViewHolder> {
 
     private ArrayList<String> tabs;
-    private Context mcontext;
+    private Context mContext;
     private List<Boolean> isClicked;
 
     public MainTabAdapter(ArrayList<String> tabs, Context context){
         this.tabs = tabs;
-        mcontext = context;
+        mContext = context;
         isClicked = new ArrayList<>();
         for(int i = 0; i<tabs.size(); i++){
             isClicked.add(false);
@@ -49,11 +44,11 @@ public class MainTabAdapter extends RecyclerView.Adapter<MainTabAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         if (isClicked.get(position)){
-            holder.tv_tab.setTextColor(mcontext.getResources().getColor(R.color.colorWhite));
-            holder.tv_tab.setBackgroundColor(mcontext.getResources().getColor(R.color.colorPrimaryDark));
+            holder.tv_tab.setTextColor(mContext.getResources().getColor(R.color.colorWhite));
+            holder.tv_tab.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
         }else {
-            holder.tv_tab.setTextColor(mcontext.getResources().getColor(R.color.colorBlack));
-            holder.tv_tab.setBackgroundColor(mcontext.getResources().getColor(R.color.colorGrey));
+            holder.tv_tab.setTextColor(mContext.getResources().getColor(R.color.colorBlack));
+            holder.tv_tab.setBackgroundColor(mContext.getResources().getColor(R.color.colorGrey));
         }
 
         String str = tabs.get(position);

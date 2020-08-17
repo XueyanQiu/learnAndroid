@@ -1,5 +1,6 @@
 package com.example.testfragmentpager;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,7 +23,7 @@ public class FragmentPage2 extends Fragment {
     private ArrayList<Page2Item> items = new ArrayList<>();
 
     private void addItemList(){
-        for(int i= 0; i<15; i++){
+        for(int i= 0; i<3; i++){
 
             StringBuilder content = new StringBuilder("This is the content\t");
             int rnd = (int)(Math.random()*100);
@@ -39,11 +40,16 @@ public class FragmentPage2 extends Fragment {
     }
 
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        addItemList();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addItemList();
+       // addItemList();
     }
 
     @Override
@@ -54,6 +60,7 @@ public class FragmentPage2 extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.fragment2_recyclerview);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+        //addItemList();
         Page2ItemAdapter adapter = new Page2ItemAdapter(items);
         recyclerView.setAdapter(adapter);
 
