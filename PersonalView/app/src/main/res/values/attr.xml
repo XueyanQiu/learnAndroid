@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyView1">
+        <attr name="property_string" format="string"/>
+        <attr name="property_boolean" format="boolean"/>
+        <attr name="property_dimension" format="dimension"/>
+    </declare-styleable>
+</resources>
